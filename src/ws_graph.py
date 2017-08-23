@@ -90,13 +90,12 @@ class WSGraph(object):
                         cur_pre_max = prob
 
     def to_output(self):
-        result = ''
         i = self.n - 2
         print(self.maxAt[self.n - 2])
+        maxEdge = self.maxEdgeAt[i]
+        result = self.edge_to_word(maxEdge) + ' '
         while i > 0:
-            edge = self.maxEdgeAt[i]
-            result = self.edge_to_word(edge) + ' ' + result
-            pre_edge = self.maxPreEdgeAt[edge]
-            result = self.edge_to_word(pre_edge) + ' ' + result
-            i = pre_edge[0]
+            maxEdge = self.maxPreEdgeAt[maxEdge]
+            result = self.edge_to_word(maxEdge) + ' ' + result
+            i = maxEdge[0]
         return result.strip()
