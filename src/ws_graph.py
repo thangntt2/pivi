@@ -70,14 +70,6 @@ class WSGraph(object):
             for edge in v_edges:
                 cur_pre_max = float('-inf')
                 for pre_edge in self.edges[edge[0]]:
-                    # bigram_prob = self.compute_bigram(
-                    #     self.edge_to_word(edge),
-                    #     self.edge_to_word(self.maxEdgeAt[edge[0]]))
-                    # prob = self.maxAt[edge[0]] + bigram_prob
-                    # if prob > cur_max:
-                    #     cur_max = prob
-                    #     self.maxAt[i] = cur_max
-                    #     self.maxEdgeAt[i] = edge
                     bigram_prob = self.compute_bigram_edge(edge, pre_edge)
                     pre_bigram_prob = self.compute_bigram_edge(pre_edge, self.maxPreEdgeAt[pre_edge])
                     prob = self.maxAt[self.maxPreEdgeAt[pre_edge][1]] + bigram_prob + pre_bigram_prob

@@ -165,7 +165,14 @@ class Segmenter(object):
 if __name__ == '__main__':
     seg = Segmenter('../data')
     # print(seg.graph_dynamic_programing('học sinh học sinh học'))
-    print(seg.graph_dynamic_programing('tốc độ truyền thông tin ngày càng cao'))
+    sr = 'tốc_độ truyền thông_tin ngày_càng cao'
+    while len(sr) >= 0:
+        print(sr, seg.compute_prob_sent(sr))
+        if sr.rfind(' ') < 0:
+            break
+        sr = sr[0: sr.rfind(' ')]
+    s = 'tốc độ truyền thông tin ngày càng cao'
+    print(seg.graph_dynamic_programing(s))
     # print(seg.graph_dynamic_programing(''))
     # print(seg.graph_dynamic_programing('con ngựa đá con ngựa đá'))
     # print(seg.graph_dynamic_programing('con ruồi đậu mâm'))
