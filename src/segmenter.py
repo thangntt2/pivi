@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from src import load_data, tokenizer, ws_graph
+import load_data, tokenizer, ws_graph
 import math
 
 
@@ -163,7 +163,7 @@ class Segmenter(object):
     
 
 if __name__ == '__main__':
-    seg = Segmenter('../data')
+    seg = Segmenter('./data')
     # print(seg.graph_dynamic_programing('học sinh học sinh học'))
     sr = 'tốc_độ truyền thông_tin ngày_càng cao'
     while len(sr) >= 0:
@@ -174,7 +174,7 @@ if __name__ == '__main__':
     s = 'tốc độ truyền thông tin ngày càng cao'
     print(seg.graph_dynamic_programing(s))
     # print(seg.graph_dynamic_programing(''))
-    # print(seg.graph_dynamic_programing('con ngựa đá con ngựa đá'))
+    print(seg.graph_dynamic_programing('con ngựa đá con ngựa đá'))
     # print(seg.graph_dynamic_programing('con ruồi đậu mâm'))
     # print(seg.compute_prob_sent('tốc_độ truyền_thông tin ngày_càng cao'))
     # print(seg.compute_prob_sent('tốc_độ truyền thông_tin ngày_càng cao'))

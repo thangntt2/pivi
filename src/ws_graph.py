@@ -83,7 +83,6 @@ class WSGraph(object):
 
     def to_output(self):
         i = self.n - 2
-        print(self.maxAt[self.n - 2])
         maxEdge = self.maxEdgeAt[i]
         result = self.edge_to_word(maxEdge) + ' '
         while i > 0:
